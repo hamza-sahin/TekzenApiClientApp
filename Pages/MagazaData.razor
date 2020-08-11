@@ -1,0 +1,76 @@
+﻿@page "/"
+
+@inject IHttpClientFactory _clientFactory
+
+<h3>MagazaData</h3>
+
+@if (string.IsNullOrWhiteSpace(errorString) == false) 
+{
+    <div class="h2">@errorString</div>
+}
+
+else if (magaza is null)
+{
+    <div class="h4">Yükleniyor...</div>
+}
+
+else
+{
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Kod</th>
+                <th>Ad</th>
+                <th>Tip</th>
+                <th>Adres</th>
+                <th>Tel</th>
+                <th>Faks</th>
+                <th>Alan Kodu</th>
+                <th>Plaka</th>
+                <th>İlçe Kodu</th>
+                <th>Kent</th>
+                <th>İlçe</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var w in magaza.MekanResponse)
+            {
+            <tr>
+                <td>@w.MekanId</td>
+                <td>@w.MekanKod</td>
+                <td>@w.MekanAd</td>
+                <td>@w.MekanTip</td>
+                <td>@w.MekanAdres</td>
+                <td>@w.MekanTel</td>
+                <td>@w.MekanFaks</td>
+                <td>@w.MekanKentAlanKod</td>
+                <td>@w.MekanKentPlaka</td>
+                <td>@w.MekanIlceKod</td>
+                <td>@w.MekanKent</td>
+                <td>@w.MekanKentIlce</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    MagazaModel magaza;
+    string errorString;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = _clientFactory.CreateClient("meta");
+
+        try
+        {
+            magaza = await client.GetFromJsonAsync<MagazaModel>("get-stores");
+            errorString = null;
+        }
+        catch (Exception ex)
+        {
+            errorString = $"Bir hata oluştu : { ex.Message } ";
+        }
+    }
+}

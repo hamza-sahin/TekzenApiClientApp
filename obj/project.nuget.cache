@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "aZOG5WcpS45yXuqqC/++7zLXFxNGKsnwqy+/d8q2b7dDKmL6jy2SZ+/Q8niVrE8PdMJFaVbb/6hO0szG54DSAA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Hamza\\Source\\Repos\\TekzenApiClientApp\\TekzenApiClient\\TekzenApiClient.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Hamza\\.nuget\\packages\\system.net.http.json\\3.2.1\\system.net.http.json.3.2.1.nupkg.sha512",
+    "C:\\Users\\Hamza\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+  ],
+  "logs": []
+}
