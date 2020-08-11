@@ -34,7 +34,7 @@ namespace TekzenApiClient
                 c.BaseAddress = new Uri(Configuration.GetValue<string>("MetaAPI"));
                 c.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic",
                     Convert.ToBase64String(Encoding.UTF8.GetBytes(
-                        $"{Configuration.GetValue<string>("username")}:{Configuration.GetValue<string>("password")}")));
+                        $"{Configuration.GetValue<string>("email")}:{Configuration.GetValue<string>("password")}")));
             });
         }
 
