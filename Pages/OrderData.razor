@@ -1,0 +1,72 @@
+﻿@page "/orders"
+
+@inject IHttpClientFactory _clientFactory
+
+<h3>Order Data</h3>
+
+@if (string.IsNullOrWhiteSpace(errorString) == false)
+{
+    <div class="h2">@errorString</div>
+}
+
+else if (siparis is null)
+{
+    <div class="h4">Yükleniyor...</div>
+}
+
+else
+{
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>No</th>
+                <th>Mekan ID</th>
+                <th>Tarih</th>
+                <th>Sevk Tarihi</th>
+                <th>Vade Tarihi</th>
+                <th>Tip</th>
+                <th>Durum</th>
+                <th>Not</th>
+                <th>Satırlar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var w in siparis.SiparisResponse)
+            {
+                <tr>
+                    <td>@w.BelgeId</td>
+                    <td>@w.BelgeNo</td>
+                    <td>@w.BelgeMekanId</td>
+                    <td>@w.BelgeTarih</td>
+                    <td>@w.BelgeSevkTarih</td>
+                    <td>@w.BelgeVadeTarih</td>
+                    <td>@w.BelgeTip</td>
+                    <td>@w.BelgeDurum</td>
+                    <td>@w.BelgeNotu</td>
+                    <td>@w.BelgeSatirlari</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    OrderModel siparis;
+    string errorString;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = _clientFactory.CreateClient("meta");
+
+        try
+        {
+            siparis = await client.GetFromJsonAsync<OrderModel>("get-orders");
+            errorString = null;
+        }
+        catch (Exception ex)
+        {
+            errorString = $"Bir hata oluştu : { ex.Message } ";
+        }
+    }
+}

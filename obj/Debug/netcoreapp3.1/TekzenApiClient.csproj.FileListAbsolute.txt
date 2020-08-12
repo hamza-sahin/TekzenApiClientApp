@@ -46,3 +46,5 @@ C:\Users\Hamza\Source\Repos\TekzenApiClientApp\TekzenApiClient\obj\Debug\netcore
 C:\Users\Hamza\Source\Repos\TekzenApiClientApp\TekzenApiClient\obj\Debug\netcoreapp3.1\TekzenApiClient.dll
 C:\Users\Hamza\Source\Repos\TekzenApiClientApp\TekzenApiClient\obj\Debug\netcoreapp3.1\TekzenApiClient.pdb
 C:\Users\Hamza\Source\Repos\TekzenApiClientApp\TekzenApiClient\obj\Debug\netcoreapp3.1\TekzenApiClient.genruntimeconfig.cache
+C:\Users\Hamza\Source\Repos\TekzenApiClientApp\TekzenApiClient\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\OrderData.razor.g.cs
+C:\Users\Hamza\Source\Repos\TekzenApiClientApp\TekzenApiClient\obj\Debug\netcoreapp3.1\Razor\Pages\OrderData.razor.g.cs
