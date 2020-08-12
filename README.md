@@ -1,4 +1,4 @@
-API Client App For Tekzen Company
+<b>API Client App For Tekzen Company</b>
 
 When you run the program, you will see two different options as Store List and Order List. After selecting any of them, the program pulls the necessary data from the API and uploads it to the relevant models (classes) and reflects them in a tabular form to the user.
 
